@@ -144,6 +144,14 @@
             padding: 20px;
             border-radius: 8px;
             border-left: 4px solid var(--secondary-color);
+            /* Ajout de la transition pour l'animation */
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        /* Ajout de l'effet au survol */
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            border-left-color: var(--neon-glow);
         }
         .skill-card h3 {
             margin: 0 0 10px 0;
@@ -272,14 +280,14 @@
             <div class="typing-container">
                 <h1 class="typed-text">TALBI Mehdi</h1>
             </div>
-            <p>Développeur Web Full-Stack Créatif</p>
+            <p>Architecte de Solutions Web</p>
         </div>
     </header>
 
     <main>
         <section id="about">
-            <h2>✨ Mon Parcours</h2>
-            <p>Mon aventure dans le monde du code a commencé par une simple curiosité pour la manière dont les sites web prenaient vie. Cette curiosité s'est rapidement transformée en une véritable passion. Formé à la fois à l'<strong>USTHB</strong> et à l'<strong>Université Gustave Eiffel</strong>, j'ai acquis une double culture, alliant la rigueur de l'algorithmique fondamentale à une approche créative de la conception web.<br><br>Aujourd'hui, je me spécialise dans la création d'applications web complètes, du design d'interface (front-end) à la logique serveur (back-end). Mon objectif est de construire des expériences utilisateur fluides, intuitives et performantes, en transformant des idées complexes en solutions numériques élégantes.</p>
+            <h2>✨ Ma Philosophie</h2>
+            <p>Pour moi, le code est bien plus qu'une discipline ; c'est le langage qui permet de transformer des idées abstraites en solutions numériques concrètes et élégantes. Mon parcours, enrichi par mes études à l'<strong>USTHB</strong> et à l'<strong>Université Gustave Eiffel</strong>, m'a appris à voir chaque projet comme un puzzle à résoudre, où la logique et la créativité doivent s'allier.<br><br>Je conçois des expériences web qui ne sont pas seulement fonctionnelles, mais aussi intuitives et performantes. Ma philosophie repose sur trois piliers : un <strong>code propre et maintenable</strong>, une <strong>conception centrée sur l'utilisateur</strong>, et une <strong>curiosité insatiable</strong> qui me pousse à toujours apprendre. Je cherche aujourd'hui à collaborer avec des équipes qui partagent cette passion pour l'innovation et l'excellence technique.</p>
         </section>
 
         <section id="skills">
@@ -316,11 +324,11 @@
             <h2>🚀 Mes Projets</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Projet système de location de véhicules">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Projet Plateforme de Blog">
                     <div class="project-card-content">
-                        <h3>Système de location de véhicules</h3>
-                        <p>Application web inspirée du modèle Vélib, gérant réservations, stations, utilisateurs et historique.</p>
-                        <p class="stack"><strong>Stack :</strong> PHP, MySQL, HTML, CSS</p>
+                        <h3>Plateforme de Blog Complète</h3>
+                        <p>Développement d'un blog full-stack avec panel admin, gestion des articles, catégories, et système de commentaires.</p>
+                        <p class="stack"><strong>Stack :</strong> PHP, MySQL, JavaScript, HTML/CSS</p>
                         <a href="https://github.com/Talbi-meh" target="_blank">Voir sur GitHub &rarr;</a>
                     </div>
                 </div>
@@ -333,21 +341,21 @@
                         <a href="https://github.com/Talbi-meh" target="_blank">Voir sur GitHub &rarr;</a>
                     </div>
                 </div>
+                 <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1579246881222-4e9c716515a8?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Gestionnaire de Tâches (To-Do App)">
+                    <div class="project-card-content">
+                        <h3>Gestionnaire de Tâches</h3>
+                        <p>Application "To-Do List" interactive permettant d'ajouter, modifier, et supprimer des tâches, avec sauvegarde dans le Local Storage.</p>
+                        <p class="stack"><strong>Stack :</strong> JavaScript, HTML, CSS</p>
+                        <a href="https://github.com/Talbi-meh" target="_blank">Voir sur GitHub &rarr;</a>
+                    </div>
+                </div>
                 <div class="project-card">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Projet tableau de bord météo">
                     <div class="project-card-content">
                         <h3>Tableau de bord météo</h3>
-                        <p>Application simple page consommant une API externe (OpenWeatherMap) pour afficher les prévisions météo d'une ville.</p>
+                        <p>Application simple page consommant une API externe pour afficher les prévisions météo en temps réel d'une ville.</p>
                         <p class="stack"><strong>Stack :</strong> JavaScript (API Fetch), HTML, CSS</p>
-                        <a href="https://github.com/Talbi-meh" target="_blank">Voir sur GitHub &rarr;</a>
-                    </div>
-                </div>
-                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Projet Mini CMS">
-                    <div class="project-card-content">
-                        <h3>Mini CMS en PHP</h3>
-                        <p>Système simple d'administration pour créer et modifier des articles avec une gestion d'utilisateurs et une base de données.</p>
-                        <p class="stack"><strong>Stack :</strong> PHP, MySQL, HTML</p>
                         <a href="https://github.com/Talbi-meh" target="_blank">Voir sur GitHub &rarr;</a>
                     </div>
                 </div>
