@@ -6,13 +6,15 @@
     <title>Portfolio | TALBI Mehdi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #102542;
             --secondary-color: #00a6fb;
+            --neon-glow: #00eaff;
             --light-bg: #f0f4f8;
             --text-color: #1a1a1a;
+            --white: #ffffff;
         }
 
         html {
@@ -27,8 +29,9 @@
             color: var(--text-color);
         }
 
+        /* --- Navigation --- */
         nav {
-            background-color: white;
+            background-color: var(--white);
             padding: 15px 40px;
             position: sticky;
             top: 0;
@@ -64,28 +67,60 @@
             color: var(--secondary-color);
         }
 
-        header {
-            background: linear-gradient(135deg, var(--primary-color), #1a3a69);
-            color: white;
-            padding: 100px 20px;
+        /* --- Section Héros Créative --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            background: linear-gradient(135deg, #0a192f 0%, #102542 100%);
+            color: var(--white);
             text-align: center;
+            padding: 0 20px;
         }
 
-        header h1 {
-            font-size: 52px;
-            margin-bottom: 10px;
+        .hero-text h1 {
+            font-size: 5vw;
+            margin: 0;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--white);
+            text-shadow: 0 0 10px var(--neon-glow), 0 0 20px var(--neon-glow);
         }
 
-        header p {
+        .hero-text .typing-container {
+            display: inline-block;
+        }
+        
+        .typed-text {
+            border-right: .15em solid var(--neon-glow);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(30, end) forwards, blink-caret .75s step-end infinite;
+        }
+
+        .hero-text p {
             font-size: 22px;
+            margin-top: 20px;
             opacity: 0.9;
         }
 
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--neon-glow); }
+        }
+        
+        /* --- Contenu Principal --- */
         section {
             max-width: 1000px;
-            margin: 60px auto;
+            margin: 80px auto;
             padding: 40px;
-            background-color: white;
+            background-color: var(--white);
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
@@ -95,27 +130,32 @@
             font-size: 32px;
             border-bottom: 3px solid var(--secondary-color);
             padding-bottom: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
-        .skills-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+        /* --- Section Compétences Détaillées --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
-
-        .skills-list li {
-            background-color: #eaf6ff;
+        .skill-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        .skill-card h3 {
+            margin: 0 0 10px 0;
             color: var(--primary-color);
-            padding: 10px 18px;
-            border-radius: 25px;
+        }
+        .skill-card p {
+            margin: 0;
             font-size: 15px;
-            font-weight: 700;
+            line-height: 1.6;
         }
 
+        /* --- Section Projets --- */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -139,7 +179,7 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
-            background-color: #e0e0e0; /* Placeholder color */
+            background-color: #e0e0e0;
         }
 
         .project-card-content {
@@ -161,39 +201,26 @@
             color: var(--secondary-color);
             font-weight: bold;
             text-decoration: none;
+            transition: color 0.3s;
         }
-
+        .project-card a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* --- Section Contact & Footer --- */
         #contact {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--white);
         }
 
         #contact h2 {
-            color: white;
-            border-color: white;
+            color: var(--white);
+            border-color: var(--white);
         }
-
-        .contact-links {
-            margin-bottom: 30px;
-            display: flex;
-            gap: 30px;
-            font-size: 18px;
-        }
-
-        .contact-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .contact-links a:hover {
-             color: var(--secondary-color);
-        }
-
+        
         .button {
             background-color: var(--secondary-color);
-            color: white;
+            color: var(--white);
             padding: 12px 30px;
             border-radius: 30px;
             text-decoration: none;
@@ -222,13 +249,16 @@
             nav ul {
                 margin-top: 10px;
             }
+            .hero-text h1 {
+                font-size: 10vw;
+            }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Mehdi T.</div>
+        <div class="logo">Mehdi TALBI</div>
         <ul>
             <li><a href="#about">À propos</a></li>
             <li><a href="#skills">Compétences</a></li>
@@ -237,78 +267,115 @@
         </ul>
     </nav>
 
-    <header>
-        <h1>TALBI Mehdi</h1>
-        <p>Développeur Web Junior | Étudiant en Informatique</p>
+    <header class="hero">
+        <div class="hero-text">
+            <div class="typing-container">
+                <h1 class="typed-text">TALBI Mehdi</h1>
+            </div>
+            <p>Développeur Web Full-Stack Créatif</p>
+        </div>
     </header>
 
-    <section id="about">
-        <h2>✨ À propos de moi</h2>
-        <p>Passionné d'informatique, d'algorithmique et de conception web, je développe des projets en autonomie pour renforcer mes compétences en développement front-end et back-end. Curieux, sérieux et motivé, je suis à la recherche d'opportunités d’apprentissage et de collaboration pour transformer des idées créatives en solutions web performantes.</p>
-    </section>
+    <main>
+        <section id="about">
+            <h2>✨ Mon Parcours</h2>
+            <p>Mon aventure dans le monde du code a commencé par une simple curiosité pour la manière dont les sites web prenaient vie. Cette curiosité s'est rapidement transformée en une véritable passion. Formé à la fois à l'<strong>USTHB</strong> et à l'<strong>Université Gustave Eiffel</strong>, j'ai acquis une double culture, alliant la rigueur de l'algorithmique fondamentale à une approche créative de la conception web.<br><br>Aujourd'hui, je me spécialise dans la création d'applications web complètes, du design d'interface (front-end) à la logique serveur (back-end). Mon objectif est de construire des expériences utilisateur fluides, intuitives et performantes, en transformant des idées complexes en solutions numériques élégantes.</p>
+        </section>
 
-    <section id="skills">
-        <h2>📚 Compétences Techniques</h2>
-        <ul class="skills-list">
-            <li>HTML / CSS</li>
-            <li>JavaScript</li>
-            <li>PHP</li>
-            <li>Python</li>
-            <li>Java</li>
-            <li>SQL / MySQL</li>
-            <li>Git & GitHub</li>
-            <li>UML</li>
-            <li>Systèmes Linux</li>
-            <li>Design Responsive</li>
-        </ul>
-    </section>
-
-    <section id="projects">
-        <h2>🚀 Mes Projets</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x250/102542/FFFFFF?text=LocaV%C3%A9lib" alt="Projet système de location de véhicules">
-                <div class="project-card-content">
-                    <h3>Système de location de véhicules</h3>
-                    <p>Application web inspirée du modèle Vélib, gérant réservations, stations, utilisateurs et historique.</p>
-                    <p class="stack"><strong>Stack :</strong> HTML, CSS, PHP, MySQL</p>
-                    <a href="https://github.com/Talbi-meh" target="_blank">Voir sur GitHub &rarr;</a>
+        <section id="skills">
+            <h2>📚 Compétences Détaillées</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>HTML / CSS</h3>
+                    <p>Structuration de pages sémantiques et accessibles, et création de designs modernes et responsives avec Flexbox, Grid et les animations CSS.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>Développement d'interfaces dynamiques et interactives, manipulation du DOM et communication avec des API (Fetch/AJAX).</p>
+                </div>
+                 <div class="skill-card">
+                    <h3>PHP</h3>
+                    <p>Création de la logique serveur, gestion des sessions utilisateurs, et interaction avec les bases de données pour des sites dynamiques.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>SQL / MySQL</h3>
+                    <p>Conception de schémas de bases de données relationnelles et écriture de requêtes complexes pour manipuler et extraire des données.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Python & Java</h3>
+                    <p>Utilisation de ces langages pour l'algorithmique, la résolution de problèmes et le développement de scripts ou d'applications back-end.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Git & GitHub</h3>
+                    <p>Gestion de versions de code pour le travail en équipe et le suivi des modifications, avec un flux de travail basé sur les branches et les pull requests.</p>
                 </div>
             </div>
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x250/102542/FFFFFF?text=Mini+CMS" alt="Projet Mini CMS">
-                <div class="project-card-content">
-                    <h3>Mini CMS en PHP</h3>
-                    <p>Système simple d'administration de contenu pour créer et modifier des articles avec gestion d'utilisateurs.</p>
-                    <p class="stack"><strong>Stack :</strong> PHP, MySQL, HTML</p>
-                    <a href="https://github.com/Talbi-meh" target="_blank">Voir sur GitHub &rarr;</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x250/102542/FFFFFF?text=Script+Python" alt="Projet script d'automatisation">
-                <div class="project-card-content">
-                    <h3>Script d'automatisation</h3>
-                    <p>Script Python organisant automatiquement des fichiers par type et date dans des répertoires cibles.</p>
-                    <p class="stack"><strong>Stack :</strong> Python</p>
-                    <a href="https://github.com/Talbi-meh" target="_blank">Voir sur GitHub &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact">
-        <h2>📅 Contact et CV</h2>
-        <p>Je suis ouvert aux nouvelles opportunités et collaborations. N'hésitez pas à me contacter !</p>
-        <div class="contact-links">
-            <p><strong>Email :</strong> <a href="mailto:talbi.meh1@gmail.com">talbi.meh1@gmail.com</a></p>
-            <p><strong>GitHub :</strong> <a href="https://github.com/Talbi-meh" target="_blank">github.com/Talbi-meh</a></p>
-        </div>
-        <a href="#" download class="button">Télécharger mon CV</a>
-    </section>
+        <section id="projects">
+            <h2>🚀 Mes Projets</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Projet système de location de véhicules">
+                    <div class="project-card-content">
+                        <h3>Système de location de véhicules</h3>
+                        <p>Application web inspirée du modèle Vélib, gérant réservations, stations, utilisateurs et historique.</p>
+                        <p class="stack"><strong>Stack :</strong> PHP, MySQL, HTML, CSS</p>
+                        <a href="https://github.com/Talbi-meh" target="_blank">Voir sur GitHub &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Maquette de site E-commerce">
+                    <div class="project-card-content">
+                        <h3>Maquette de site E-commerce</h3>
+                        <p>Intégration d'une maquette pour une boutique en ligne, avec un design responsive, un panier interactif et des animations CSS.</p>
+                        <p class="stack"><strong>Stack :</strong> HTML, CSS, JavaScript</p>
+                        <a href="https://github.com/Talbi-meh" target="_blank">Voir sur GitHub &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Projet tableau de bord météo">
+                    <div class="project-card-content">
+                        <h3>Tableau de bord météo</h3>
+                        <p>Application simple page consommant une API externe (OpenWeatherMap) pour afficher les prévisions météo d'une ville.</p>
+                        <p class="stack"><strong>Stack :</strong> JavaScript (API Fetch), HTML, CSS</p>
+                        <a href="https://github.com/Talbi-meh" target="_blank">Voir sur GitHub &rarr;</a>
+                    </div>
+                </div>
+                 <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Projet Mini CMS">
+                    <div class="project-card-content">
+                        <h3>Mini CMS en PHP</h3>
+                        <p>Système simple d'administration pour créer et modifier des articles avec une gestion d'utilisateurs et une base de données.</p>
+                        <p class="stack"><strong>Stack :</strong> PHP, MySQL, HTML</p>
+                        <a href="https://github.com/Talbi-meh" target="_blank">Voir sur GitHub &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>🤙 Parlons de votre projet</h2>
+            <p>Je suis toujours à la recherche de défis stimulants. Si vous avez une idée, une question ou une opportunité, contactez-moi !</p>
+            <br>
+            <a href="mailto:talbi.meh1@gmail.com" class="button">Envoyer un e-mail</a>
+            <a href="#" download style="margin-left: 15px;" class="button">Télécharger mon CV</a>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2025 TALBI Mehdi – Conçu avec passion.</p>
+        <p>&copy; 2025 TALBI Mehdi – Portfolio conçu avec passion</p>
     </footer>
+    
+    <script>
+        const typedText = document.querySelector('.typed-text');
+        const typingContainer = document.querySelector('.typing-container');
 
+        typingContainer.addEventListener('click', () => {
+            typedText.style.animation = 'none';
+            typedText.offsetHeight; /* Force le recalcul du style par le navigateur */
+            typedText.style.animation = null; 
+        });
+    </script>
 </body>
 </html>
